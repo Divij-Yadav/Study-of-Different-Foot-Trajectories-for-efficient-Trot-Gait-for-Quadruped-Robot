@@ -1,0 +1,1 @@
+# Study-of-Different-Foot-Trajectories-for-efficient-Trot-Gait-for-Quadruped-Robot
