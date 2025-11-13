@@ -1,5 +1,29 @@
 # Study-of-Different-Foot-Trajectories-for-efficient-Trot-Gait-for-Quadruped-Robot
 
+This repository contains the full modeling, simulation, and validation pipeline for a quadruped robot’s locomotion system. All components are derived analytically from first principles and validated through visualizations and simulation.
+
+## Core Contributions
+
+✔ **Developed and validated Forward Kinematics (FK) for:**
+- A single 3-link robotic leg  
+- A full quadruped with floating torso orientation (roll–pitch–yaw)
+
+✔ **Implemented Inverse Kinematics (IK)** for the 3-link leg with closed-form solutions.
+
+✔ **Conducted a complete study of trajectory generation**, implementing and comparing:
+- Cubic polynomial trajectories  
+- Quintic polynomial trajectories  
+- Half-sine / Composite cycloidal trajectories  
+
+✔ **Built MATLAB simulations** for analyzing position, velocity, and acceleration profiles of each curve.
+
+✔ **Developed a complete trot gait engine with adjustable duty factor**, supporting:
+- Balanced trot gait (D = 0.5)   
+- Walking trot gait (D > 0.5)
+
+✔ **Visual validation** via 2D/3D plots for FK, IK solutions, foot trajectories, and gait sequences.
+
+
 ## **Cubic Trajectory**
 
 $$
