@@ -23,6 +23,65 @@ This repository contains the full modeling, simulation, and validation pipeline 
 
 ✔ **Visual validation** via 2D/3D plots for FK, IK solutions, foot trajectories, and gait sequences.
 
+# 🦿 1. Kinematic Modeling
+
+## 1.1 Forward Kinematics of Single Leg
+
+A 3-DOF leg is modeled using standard **Denavit–Hartenberg (D–H) parameters**.  
+Transformations are computed using screw operations:
+
+$$
+^{i-1}T_i = \text{Screw}_z(\theta_i, d_i)\,\text{Screw}_x(\alpha_i, a_i)
+$$
+
+From these transforms, the global position of each link is computed:
+
+$$
+U^iT = U^0T \cdot \prod_j \ ^{j-1}T_j
+$$
+
+The FK solver:
+
+- Computes hip, knee, and foot positions  
+- Plots the resulting leg configuration  
+- Validates correctness across a wide set of joint angles  
+
+---
+
+## 1.2 Forward Kinematics of Full Quadruped with Torso Orientation
+
+The torso serves as a floating base with roll–pitch–yaw angles \((\alpha, \beta, \gamma)\):
+
+$$
+R = R_z(\gamma)\,R_y(\beta)\,R_x(\alpha)
+$$
+
+Each leg’s hip is offset from the torso center.  
+The FK system computes **17 total key points** (torso + 4 legs × 4 joints).
+
+The full FK module supports:
+
+- Body rotations  
+- Arbitrary joint angle sets for all four legs  
+- Visualization of the complete 3D stance configuration  
+
+---
+
+## 1.3 Inverse Kinematics
+
+IK solves for joint angles \((\theta_1, \theta_2, \theta_3)\) from a desired foot position \((p_x, p_y, p_z)\).
+
+Closed-form nonlinear equations:
+
+$$
+x(\theta_1,\theta_2,\theta_3) = p_x,\quad
+y(\theta_1,\theta_2,\theta_3) = p_y,\quad
+z(\theta_1,\theta_2,\theta_3) = p_z
+$$
+
+The solver produces **up to four valid IK branches**, corresponding to different feasible physical configurations.
+
+
 
 ## **Cubic Trajectory**
 
