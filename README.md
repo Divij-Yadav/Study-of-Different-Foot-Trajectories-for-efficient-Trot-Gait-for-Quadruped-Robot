@@ -82,6 +82,115 @@ $$
 The solver produces **up to four valid IK branches**, corresponding to different feasible physical configurations.
 
 
+# 🚶‍♂️ 2. Trajectory Generation
+
+Trajectory generation explores three major curves:
+- **Cubic polynomial**
+- **Quintic polynomial**
+- **Cycloidal / Half-sine**
+
+Simulations compare their:
+- Smoothness  
+- Velocity continuity  
+- Acceleration peaks  
+- Feasibility for legged locomotion  
+
+---
+
+## 2.1 Cubic Polynomial Trajectories
+
+General cubic:
+
+$$
+x(t)=c_0+c_1 t + c_2 t^2 + c_3 t^3
+$$
+
+Used for:
+- Swing phase motion  
+- Rise/fall in Z direction  
+
+Pros:
+- Smooth position/velocity  
+Cons:
+- Acceleration discontinuous  
+
+---
+
+## 2.2 Quintic Polynomial Trajectories
+
+General form:
+
+$$
+x(t)=c_0+c_1 t + c_2 t^2 + c_3 t^3 + c_4 t^4 + c_5 t^5
+$$
+
+Constraints enforced on:
+- Position  
+- Velocity  
+- Acceleration  
+
+Produces **very smooth** curve ideal for dynamic gaits.
+
+---
+
+## 2.3 Half-Sine / Composite Cycloidal Trajectories
+
+Based on a half sine curve:
+
+$$
+x(t) = A\sin(\omega t) + B
+$$
+
+Used for:
+- Natural foot-swing arcs  
+- Smooth landing and lift-off  
+
+Advantages:
+- Simple closed form  
+- Smooth acceleration profile  
+
+---
+
+# 🐾 3. Gait Generation
+
+A complete trot gait engine with adjustable **duty factor (D)** is implemented.
+
+Definitions:
+- **Stride length (S)**  
+- **Step length (L = S/2)**  
+- **Cycle time (T)**  
+- **Velocity (V = S/T)**  
+
+---
+
+## 3.1 Balanced Trot Gait (D = 0.5)
+
+Diagonal legs move together:
+- LF + RH in swing  
+- RF + LH in swing
+
+No swing overlap → maximally stable trot.
+
+---
+
+## 3.2 Running Trot Gait (D < 0.5)
+
+- Swing phase becomes longer  
+- Reduced stance time  
+- Faster forward motion  
+- Simulates dynamic running trot  
+
+---
+
+## 3.3 Walking Trot Gait (D > 0.5)
+
+- Longer stance time  
+- Increased stability  
+- Suitable for slow precision walking  
+
+---
+
+
 
 ## **Cubic Trajectory**
 
