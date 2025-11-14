@@ -94,10 +94,3 @@ Plots for each:
 - Supports dynamic stepping  
 - Torso velocity parameters included  
 
-
-
-**Placeholder — Gait Timing Diagram**
-
-![Gait Timing](path/to/gait_timing_plot.png)
-
----
