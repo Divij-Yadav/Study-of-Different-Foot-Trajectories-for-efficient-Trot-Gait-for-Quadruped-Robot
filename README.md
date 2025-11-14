@@ -124,8 +124,6 @@ Plots for each:
 
 This section summarizes the mathematical models used to generate smooth swing trajectories, stance motion, and trot-gait timing for the quadruped robot. Only the essential forms are included here, while detailed derivations appear in the project documentation.
 
----
-
 ## 1. Polynomial Trajectory Models
 
 ### **Cubic Trajectory**
@@ -133,15 +131,15 @@ This section summarizes the mathematical models used to generate smooth swing tr
 Used for simple point-to-point motion when initial and final velocities are zero.
 
 $$
-x(t)=c_0 + c_1 t + c_2 t^2 + c_3 t^3
+x(t) = c_0 + c_1 t + c_2 t^2 + c_3 t^3
 $$
 
 Boundary-condition coefficients:
 
 $$
-c_0 = x_0,\qquad 
-c_1 = 0,\qquad
-c_2 = \frac{3(x_f - x_0)}{T^2},\qquad
+c_0 = x_0, \qquad
+c_1 = 0, \qquad
+c_2 = \frac{3(x_f - x_0)}{T^2}, \qquad
 c_3 = -\frac{2(x_f - x_0)}{T^3}
 $$
 
@@ -152,31 +150,49 @@ $$
 Ensures smooth position, velocity, and acceleration.
 
 $$
-x(t)=c_0 + c_1 t + c_2 t^2 + c_3 t^3 + c_4 t^4 + c_5 t^5
+x(t) = c_0 + c_1 t + c_2 t^2 + c_3 t^3 + c_4 t^4 + c_5 t^5
 $$
 
 Coefficients:
 
 $$
-c_0 = x_i,\quad
-c_1 = v_i,\quad
+c_0 = x_i, \qquad
+c_1 = v_i, \qquad
 c_2 = \frac{1}{2} a_i
 $$
 
 $$
-c_3 = \frac{20\Delta x - (8v_f + 12v_i)T - (3a_i - a_f)T^2}{2T^3}
+c_3 = 
+\frac{
+20\Delta x - (8v_f + 12v_i)T - (3a_i - a_f)T^2
+}{
+2T^3
+}
 $$
 
 $$
-c_4 = \frac{-30\Delta x + (14v_f + 16v_i)T + (3a_i - 2a_f)T^2}{2T^4}
+c_4 =
+\frac{
+-30\Delta x + (14v_f + 16v_i)T + (3a_i - 2a_f)T^2
+}{
+2T^4
+}
 $$
 
 $$
-c_5 = \frac{12\Delta x - 6(v_f + v_i)T - (a_i - a_f)T^2}{2T^5}
+c_5 =
+\frac{
+12\Delta x - 6(v_f + v_i)T - (a_i - a_f)T^2
+}{
+2T^5
+}
 $$
 
-with  
-$$\Delta x = x_f - x_i.$$
+with:
+
+$$
+\Delta x = x_f - x_i
+$$
 
 ---
 
@@ -191,7 +207,7 @@ $$
 ### **X-Direction (Forward Swing)**
 
 $$
-x(t)=S_0\left(t_n - \frac{\sin(2\pi t_n)}{2\pi}\right)
+x(t) = S_0 \left( t_n - \frac{\sin(2\pi t_n)}{2\pi} \right)
 $$
 
 **Placeholder — X vs Time Plot**
@@ -203,13 +219,13 @@ $$
 ### **Z-Direction (Swing Foot Height)**
 
 $$
-z(t)=H_0\left(t_n - \frac{\sin(4\pi t_n)}{4\pi}\right)
+z(t) = H_0 \left( t_n - \frac{\sin(4\pi t_n)}{4\pi} \right)
 $$
 
 Fall phase:
 
 $$
-z_{\text{fall}}(t)=H_0 - z_{\text{rise}}(t)
+z_{\text{fall}}(t) = H_0 - z_{\text{rise}}(t)
 $$
 
 **Placeholder — Z vs Time Plot**
@@ -223,9 +239,9 @@ $$
 During stance, the foot remains on the ground:
 
 $$
-z(t)=0,\qquad
-x(t)=x_0 + Vt,\qquad
-V=\frac{S}{T}
+z(t) = 0, \qquad
+x(t) = x_0 + Vt, \qquad
+V = \frac{S}{T}
 $$
 
 **Placeholder — Stance Motion Plot**
@@ -239,7 +255,7 @@ $$
 Duty factor:
 
 $$
-D=\frac{T_s}{T_c}
+D = \frac{T_s}{T_c}
 $$
 
 - \(D = 0.5\): balanced trot  
