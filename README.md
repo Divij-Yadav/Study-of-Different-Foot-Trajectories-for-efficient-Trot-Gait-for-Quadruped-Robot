@@ -94,3 +94,9 @@ Plots for each:
 - Supports dynamic stepping  
 - Torso velocity parameters included  
 
+---
+
+### Note:
+- Trajectory modelling methodology is explained in the document: `TRAJECTORY GENERATION METHODOLOGY AND MODELLING`
+- Trot gait generation is explained in the document: `GAIT GENERATION`
+- All output plots obtained are stored in the file: `Output Plots`
